@@ -20,7 +20,7 @@ module Lita
       # Admin commands
       route %r{meme add ([\w\._]+) (http.+)$}i, :meme_add,
         command: true,
-        #restrict_to: :custom_meme_admins,
+        restrict_to: :custom_meme_admins,
         help: {'meme add NAME IMAGE' => "Adds a meme to the list"}
 
       route %r{meme delete ([\w\._]+)$}i, :meme_delete,
