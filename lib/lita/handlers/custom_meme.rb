@@ -9,21 +9,21 @@ module Lita
       # The global handler
       route %r{\(([\w\._]+)\)}i, :meme_image, command: false
 
-      route %r{^meme show ([\w\._]+)$}i, :meme_image,
+      route %r{meme show ([\w\._]+)$}i, :meme_image,
         command: true,
         help: {'meme show NAME' => "Displays the image for the specified meme."}
 
-      route %r{^meme list$}i, :meme_list,
+      route %r{meme list$}i, :meme_list,
         command: true,
         help: {'meme list' => "Displays a list of available memes."}
 
       # Admin commands
-      route %r{^meme add ([\w\._]+) (http.+)$}i, :meme_add,
+      route %r{meme add ([\w\._]+) (http.+)$}i, :meme_add,
         command: true,
         restrict_to: :custom_meme_admins,
         help: {'meme add NAME IMAGE' => "Adds a meme to the list"}
 
-      route %r{^meme delete ([\w\._]+)$}i, :meme_delete,
+      route %r{meme delete ([\w\._]+)$}i, :meme_delete,
         command: true,
         restrict_to: :custom_meme_admins,
         help: {'meme delete NAME' => "Deletes a meme from the list"}
